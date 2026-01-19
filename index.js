@@ -93,6 +93,13 @@ async function run() {
       const result = await productsCollection.find().toArray();
       res.send(result);
     });
+    app.get('/products/:id', async (req, res) => {
+      const id = req.params.id; // string
+      const product = await productsCollection.findOne({ _id: id });
+      if (!product)
+        return res.status(404).send({ message: 'Product not found' });
+      res.send(product);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
