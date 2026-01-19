@@ -8,7 +8,12 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 //Middleware
 app.use(
   cors({
-    origin: ['http://localhost:5173'],
+    origin: [
+      'http://localhost:5173',
+      'https://practice-project-client-fzgg.vercel.app',
+      'https://practice-project-client-git-9df047-kyachingprue-marmas-projects.vercel.app',
+      'https://practice-project-client-fzgg-myrz8m7p0.vercel.app',
+    ],
     credentials: true,
   }),
 );
